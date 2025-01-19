@@ -1,69 +1,54 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/dashboard']">
-      <img
-        src="./assets/img/project/logo.svg"
-        [alt]="appName + ' Logo'"
-        class="img-fluid me-2"
-      />
-      DOC CHAT APP
+<header>
+  <div class="dc--flex dc--items-center">
+    <!-- BEGIN: Title -->
+    <a routerLink="/home" class="dc--flex dc--items-center">
+      <img src="/assets/logo.svg" class="logo-icon" alt="Angular Logo" />
+      <span class="dc--text-xl dc--font-semibold">
+        <span class="dc--hidden lg:dc--inline">Document Chat App</span>
+      </span>
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      (click)="isMenuCollapsed = !isMenuCollapsed"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- END: Title -->
 
-    <div
-      class="collapse navbar-collapse"
-      [ngbCollapse]="isMenuCollapsed"
-      id="navbarSupportedContent"
-    >
-      <ul class="navbar-nav mb-2 mb-lg-0 w-100">
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="['/home']"
-            [routerLinkActive]="['active']"
-            >{{ "HOME" }}</a
-          >
-        </li>
-
-        <li class="nav-item dropdown" ngbDropdown>
-          <a
-            class="nav-link dropdown-toggle"
-            ngbDropdownToggle
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            {{ "USER" }}
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            ngbDropdownMenu
-            aria-labelledby="navbarDropdown"
-          >
-            <li>
-              <a
-                class="dropdown-item cursor-pointer"
-                (click)="onClickLogout()"
-                >{{ "LOGOUT" }}</a
-              >
-            </li>
-          </ul>
-        </li>
-      </ul>
+    <!-- BEGIN: Main menu items -->
+    <div class="menu-items">
+      @for (item of menuItems; track $index) {
+        <a
+          mat-button
+          [routerLink]="item.link"
+          routerLinkActive="active"
+          #rla="routerLinkActive"
+          [color]="'error'"
+        >
+          <fa-icon [icon]="item.icon" />
+          <span class="dc--ml-2 dc--hidden lg:dc--inline">{{ item.label }}</span>
+        </a>
+      }
     </div>
+    <!-- END: Main menu items -->
   </div>
-</nav>
 
-<ng-content></ng-content>
+  <div class="dc--flex dc--items-center">
+    @if (authUser; as user) {
+      <app-avatar
+        [text]="user.firstName + ' ' + user.lastName"
+        [matMenuTriggerFor]="userMenu"
+        class="dc--cursor-pointer"
+      />
+
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item type="button" disabled>
+          {{ user.firstName + ' ' + user.lastName }}
+        </button>
+        <button mat-menu-item type="button" (click)="logout.emit()">
+          <fa-icon class="dc--mr-2" [icon]="'right-from-bracket'" />
+          Sign out
+        </button>
+      </mat-menu>
+    } @else {
+      <a mat-stroked-button routerLink="/auth/login">
+        <fa-icon [icon]="'user'" />
+        <span class="dc--ml-2 dc--hidden lg:dc--inline">Login</span>
+      </a>
+    }
+  </div>
+</header>

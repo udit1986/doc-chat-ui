@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { LayoutHeaderComponent } from '../layout-header/layout-header.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-page-layout',
   standalone: true,
-  imports: [LayoutHeaderComponent],
+  imports: [RouterOutlet],
   templateUrl: './page-layout.component.html',
   styleUrl: './page-layout.component.scss'
 })
