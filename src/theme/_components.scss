@@ -1,0 +1,25 @@
+// Section styles
+section {
+    @apply dc--mb-12 dc--mt-4 lg:dc--mb-16;
+  }
+  
+  // Alert styles
+  .alert {
+    @apply dc--mb-4 dc--rounded-lg dc--p-4;
+  
+    &.alert--success {
+      @apply dc--bg-green-100 dc--text-green-800;
+    }
+  
+    &.alert--error {
+      @apply dc--bg-red-100 dc--text-red-800;
+    }
+  
+    &.alert--info {
+      @apply dc--bg-blue-100 dc--text-blue-800;
+    }
+  
+    &.alert--warning {
+      @apply dc--bg-yellow-100 dc--text-yellow-800;
+    }
+  }
