@@ -1,1 +1,45 @@
-<p>home works!</p>
+<!-- BEGIN: Main banner -->
+<section>
+  <div class="dc--grid dc--grid-cols-1 dc--gap-4 md:dc--grid-cols-2">
+    <!-- Left -->
+    <div
+      class="dc--flex dc--flex-col dc--justify-center dc--text-center md:dc--text-left"
+    >
+      <h1>
+        <span class="dc--text-primary">Document Chat App</span>
+      </h1>
+      <p class="dc--py-5 dc--text-xl lg:dc--py-3 lg:dc--text-2xl">
+        An
+        <span class="dc--text-primary">Angular</span>
+        application that demonstrates best features for Document Chat App.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- END: Main banner -->
+
+<!-- BEGIN: Features -->
+<section>
+  <h2 class="dc--text-center">Features</h2>
+  <p class="subtitle dc--text-center">
+    This application offer following features.
+  </p>
+
+  <div
+    class="dc--grid dc--grid-cols-1 dc--gap-8 md:dc--grid-cols-3 lg:dc--grid-cols-4"
+  >
+    @for (feature of features(); track $index) {
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ feature.name }}</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>{{ feature.description }}</p>
+      </mat-card-content>
+
+    </mat-card>
+    }
+  </div>
+</section>
+<!-- END: Features -->
