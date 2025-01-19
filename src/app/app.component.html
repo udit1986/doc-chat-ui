@@ -1,7 +1,5 @@
-<div class="scrollable-container">
-  <div class="layout">
+<div class="content">
+  <app-layout-header [authUser]="authUser$ | async" (logout)="onLogout()" />
 
-    <router-outlet></router-outlet>
-
-  </div>
+  <app-page-layout />
 </div>
