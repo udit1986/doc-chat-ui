@@ -8,9 +8,13 @@ import { AppComponent } from './app.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { ConfigService, DataService } from './shared/services';
 import { RestApiModule } from './shared/services/restapi/restapi.module';
-import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent, PageLayoutComponent } from './shared/components';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/app.state';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './core/auth/store/auth.effects';
+import { authInterceptorProviders } from './core/auth/interceptors';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,8 +29,12 @@ import { HeaderComponent, PageLayoutComponent } from './shared/components';
     RestApiModule,
     HeaderComponent,
     PageLayoutComponent,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects])
   ],
-  providers: [ConfigService, DataService, DatePipe],
+  providers: [ConfigService, DataService, DatePipe, 
+    authInterceptorProviders
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

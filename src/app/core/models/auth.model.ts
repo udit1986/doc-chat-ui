@@ -9,6 +9,7 @@ export enum TokenStatus {
     isLoggedIn: boolean;
     user?: AuthUser;
     accessTokenStatus: TokenStatus;
+    refreshTokenStatus: TokenStatus;
     isLoadingLogin: boolean;
     hasLoginError: boolean;
   }
@@ -17,4 +18,6 @@ export enum TokenStatus {
     id: number;
     firstName: string;
     lastName: string;
+    email: string;
+    role: string;
   }
