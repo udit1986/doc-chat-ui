@@ -7,7 +7,7 @@ import {
   LogoutAction,
   RefreshTokenActions,
 } from './auth.actions';
-import { AuthState, TokenStatus } from '../../models/auth.model';
+import { AuthState, TokenStatus } from '../../models';
 
 export const AUTH_FEATURE_KEY = 'auth';
 

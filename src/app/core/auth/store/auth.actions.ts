@@ -4,7 +4,7 @@ import {
   emptyProps,
   props,
 } from '@ngrx/store';
-import { AuthUser } from '../../models/auth.model';
+import { AuthUser } from '../../models';
 
 // Login
 export const LoginActions = createActionGroup({
