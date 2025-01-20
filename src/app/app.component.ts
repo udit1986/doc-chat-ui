@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthFacade } from './core/auth/store/auth.facade';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  private readonly authFacade = inject(AuthFacade);
+  readonly authUser$ = this.authFacade.authUser$;
   title = 'doc-chat-ui';
-  readonly authUser$ = {} as any;
 
   protected onLogout() {
+    this.authFacade.logout();
   }
 }
