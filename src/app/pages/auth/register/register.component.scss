@@ -1,0 +1,8 @@
+.form-wrapper {
+    @apply dc--mt-10 dc--w-10/12 md:dc--w-1/2;
+  
+    form {
+      background-color: white;
+      @apply dc--grid dc--gap-2;
+    }
+  }
