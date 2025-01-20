@@ -1,0 +1,27 @@
+<div class="dc--container dc--p-2">
+  <h3 mat-dialog-title>
+    {{ data.document ? "Edit Document" : "Create Document" }}
+  </h3>
+  <div mat-dialog-content>
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <input matInput formControlName="author" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Content</mat-label>
+        <textarea matInput formControlName="content"></textarea>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+  </div>
+</div>
