@@ -107,16 +107,10 @@ export class AuthService {
    * @returns {Observable<AccessData>}
    */
   refreshToken(): Observable<AccessData> {
-    const refreshToken = this.tokenStorageService.getRefreshToken();
-    if (!refreshToken) {
       return throwError(() => new Error('Refresh token does not exist'));
-    }
 
     //TODO: implement refresh token logic
-    return this.restApiService.postData(AuthApiEndpoint.AUTH_LOGIN_DATA_POST, {
-      email: '',
-      password: '',
-    });
+  
   }
 
   /**

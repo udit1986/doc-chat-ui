@@ -1,6 +1,26 @@
-# DocChatUi
+# Doc Chat UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
+This project is a document management and chat interface built with Angular. It includes features for user authentication, user management, and document upload and management.
+
+## Features
+
+- **Sign Up, Login, and Logout**: User authentication interface.
+- **User Management**: Admin-only access for managing users and assigning roles.
+- **Document Upload and Management**: Interface to upload and manage documents.
+
+## Getting Started
+
+To get started with the project, follow these steps:
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/doc-chat-ui.git
+   cd doc-chat-ui
+   ```
+2. Install dependencies
+    ```sh
+    npm install
+    ```
 
 ## Development server
 
@@ -22,6 +42,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Screenshot for reference
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+![Home text](src/assets/images/Home_pahe.png)
+![Login text](src/assets/images/Doc_page.png)
+![Doc text](src/assets/images/Login_page.png)
